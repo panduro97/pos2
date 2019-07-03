@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Ejemplo de setInterval/clearInterval</title>
+</head>
+ 
+<body onload="iniciarCambioDeColor();">
+  <div id="mi_mensaje">
+    <p>¡Hola mundo!</p>
+  </div>
+  <button onclick="detenerCambioDeColor();">Detener</button>
+  <script> 
+    var procesoID;
+
+    function alternarColor() { 
+      var oElem = document.getElementById("mi_mensaje"); 
+      oElem.style.color = oElem.style.color == "red" ? "blue" : "red"; 
+    } 
+
+    function detenerCambioDeColor() { 
+      clearInterval(procesoID); 
+    }
+
+    procesoID = setInterval(alternarColor, 2000);
+  </script>
+</body>
+</html>
