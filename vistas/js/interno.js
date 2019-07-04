@@ -57,6 +57,20 @@ function borrar(id) {
 }
 
 function traer(id) {
+
+    var variable1 = $(".editDescripcion");
+    var variable2 = $(".editStock");
+	var variable3 = $(".editCosto");
+    
+alert(variable1.val())
+alert(variable2.val())
+alert(variable3.val())
+alert(id)
+
+   /*  var des = variable1.val()
+    var din = variable2.val()
+    var sto = variable3.val()
+
     var parametro = {
         id : id
     }
@@ -75,7 +89,7 @@ function traer(id) {
 
          }
 
-     })
+     }) */
      
  /*    $.ajax({
 
