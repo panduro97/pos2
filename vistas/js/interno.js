@@ -67,9 +67,9 @@ function traer(id) {
          data: parametro,
          dataType:"json",
          success:function(respuesta){
-           var datos = respuesta.costo;
+           /* var datos = respuesta.costo;
 
-            alert(JSON.stringify(datos))
+            alert(JSON.stringify(datos)) */
             
             
 
