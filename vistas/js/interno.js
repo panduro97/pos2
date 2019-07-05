@@ -33,46 +33,65 @@ $("#modalAgregarInterno").on("click", "button.enviarInterno", function(){
 
 
 function borrar(id) {
-    console.log(id)
     var parametro = {
         id : id
     }
+    swal({
 
-    $.ajax({
+		title: '¿Estas Seguro?',
+		text: "Se borrara el stock y terminaran las ventas!",
+		type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, Cerrar Caja.'
+        }).then(function(result) {
+        if (result.value) {
+            var parametros = {
+                "true" : true
+            }
+            $.ajax({
 
-        url:"controladores/borrarInternos.controlador.php",
-         method: "POST",
-         data: parametro,
-         dataType:"json",
-         success:function(respuesta){
-           
-            alert(respuesta)
+                url:"controladores/borrarInternos.controlador.php",
+                 method: "POST",
+                 data: parametro,
+                 dataType:"json",
+                 success:function(respuesta){
+                   
+                    alert(respuesta)
+        
+                 }
+        
+             })
+        
+             location.reload();
 
-         }
+        }
 
-     })
 
-     location.reload();
+	})
 
 }
 
-function traer(id) {
+function traer() {
 
     var variable1 = $(".editDescripcion");
     var variable2 = $(".editStock");
-	var variable3 = $(".editCosto");
-    
-alert(variable1.val())
-alert(variable2.val())
-alert(variable3.val())
-alert(id)
+    var variable3 = $(".editCosto");
+	var variable4 = $(".editId");
 
-   /*  var des = variable1.val()
-    var din = variable2.val()
-    var sto = variable3.val()
+    var descripcion = variable1.val()
+    var stock = variable2.val()
+    var costo = variable3.val()
+    var id = variable4.val()
+
 
     var parametro = {
-        id : id
+        id,
+        descripcion,
+        stock,
+        costo
     }
     $.ajax({
 
@@ -81,15 +100,15 @@ alert(id)
          data: parametro,
          dataType:"json",
          success:function(respuesta){
-           /* var datos = respuesta.costo;
+           var datos = respuesta.costo;
 
-            alert(JSON.stringify(datos)) */
+            alert(JSON.stringify(datos)) 
             
             
 
          }
 
-     }) */
+     })
      
  /*    $.ajax({
 

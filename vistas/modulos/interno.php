@@ -42,7 +42,7 @@
                         $inversion = $row['stock'] * $row['costo'];
                         $resultado += $inversion;
                        }
-                       echo "<h2>Total Invertido: $".$resultado." </h2>"
+                       echo "<h2>Total Inventario: $".$resultado." </h2>"
 
 
               ?>
@@ -60,8 +60,8 @@
            
            <th>#</th>
            <th>Descripción</th>
-           <th>Stock</th>
-           <th>Costo</th>           
+           <th>Costo</th>  
+           <th>Stock</th>         
            <th>Invertido</th>
 
          </tr> 
@@ -153,7 +153,7 @@ MODAL AGREGAR PRODUCTO
           
             <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-            <input type="text" class="form-control input-lg editDescripcion" name="nuevaDescripcion" placeholder="Ingresar descripción" required>
+            <input type="text" class="form-control input-lg editDescripcion" name="nuevaDescripcion" placeholder="Ingresar descripción" >
 
           </div>
 
@@ -165,7 +165,7 @@ MODAL AGREGAR PRODUCTO
           
             <span class="input-group-addon"><i class="fa fa-check"></i></span> 
 
-            <input type="number" class="form-control input-lg editStock" name="nuevoStock" min="0" placeholder="Stock" required>
+            <input type="number" class="form-control input-lg editStock" name="nuevoStock" min="0" placeholder="Stock" >
 
           </div>
 
@@ -179,10 +179,23 @@ MODAL AGREGAR PRODUCTO
               
                 <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
 
-                <input type="number" class="form-control input-lg editCosto" name="nuevoPrecioCompra" min="0" placeholder="Precio de compra" required>
+                <input type="number" class="form-control input-lg editCosto" name="nuevoPrecioCompra" min="0" placeholder="Precio de compra" >
+                <?php 
+                       
+                       $conn = mysqli_connect('bigdeli.mx', 'atomstud_sergio', 'bigdeli123', 'atomstud_pos');
+                       if (!$conn) {
+                           die("Connection failed: " . mysqli_connect_error());
+                       }
+                       $consulta = "SELECT id FROM interno";
+                       $datos = $conn->query($consulta);
+                       $resultado=0;
+                       while ($row=mysqli_fetch_array($datos)){
+                        echo "<input type='hidden' class='editId' value='".$row['id']."'>";
+                        
 
+                        }
+                        ?>
               </div>
-
             </div>
 
             </div>
@@ -194,8 +207,7 @@ MODAL AGREGAR PRODUCTO
     <div class="modal-footer">
 
       <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-
-      <button type="submit" class="btn btn-primary editInterno" onClick="traer(20)">Editar producto</button>
+      <button type='submit' class='btn btn-primary editInterno' onClick='traer()'>Editar producto</button>
 
     </div>
 
