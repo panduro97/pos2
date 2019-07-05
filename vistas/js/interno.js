@@ -79,12 +79,17 @@ function traer() {
     var variable1 = $(".editDescripcion");
     var variable2 = $(".editStock");
     var variable3 = $(".editCosto");
-	var variable4 = $(".editId");
-
+    var variable4 = $("#inputState");
+    
     var descripcion = variable1.val()
     var stock = variable2.val()
     var costo = variable3.val()
     var id = variable4.val()
+
+  /*   alert(descripcion)
+    alert(stock)
+    alert(costo)
+    alert(id) */
 
 
     var parametro = {

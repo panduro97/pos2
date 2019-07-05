@@ -47,7 +47,11 @@
 
               ?>
 
+                
 
+                <button class='btn btn-warning' data-toggle='modal'  data-target='#modalAgregarProductos'><i class='fa fa-pencil'></i></button>
+                
+         
       </div>
 
       <div class="box-body">
@@ -89,7 +93,6 @@
                        echo "<td>".$inversion."</td>";
                        echo "<td>";
                        echo "<div class='btn-group'>";
-                       echo " <button class='btn btn-warning' data-toggle='modal'  data-target='#modalAgregarProductos'><i class='fa fa-pencil'></i></button>";
                        echo "<button class='btn btn-danger borrarInterno' onClick='borrar(".$row['id'].")'><i class='fa fa-times'></i></button>";
                        echo "</div>";
                        echo "</td>";
@@ -147,6 +150,38 @@ MODAL AGREGAR PRODUCTO
 
       <div class="box-body">
 
+      <div class="form-group row">
+
+        <div class="col-xs-6">
+
+          <div class="input-group">
+          
+              <label for="inputState">ID</label>
+              
+              <select id="inputState" class="form-control">
+              <?php 
+                       $conn = mysqli_connect('bigdeli.mx', 'atomstud_sergio', 'bigdeli123', 'atomstud_pos');
+                       if (!$conn) {
+                           die("Connection failed: " . mysqli_connect_error());
+                       }
+                       $consulta = "SELECT id FROM interno";
+                       $datos = $conn->query($consulta);
+                       $resultado=0;
+                       while ($row=mysqli_fetch_array($datos)){
+                        echo "<option class='editId' value='".$row['id']."'> ".$row['id']."</option>";
+
+                      }
+                
+               
+                ?>
+              </select>
+            
+            </div>
+
+          </div>
+
+        </div>
+
          <div class="form-group">
           
           <div class="input-group">
@@ -180,29 +215,16 @@ MODAL AGREGAR PRODUCTO
                 <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
 
                 <input type="number" class="form-control input-lg editCosto" name="nuevoPrecioCompra" min="0" placeholder="Precio de compra" >
-                <?php 
-                       
-                       $conn = mysqli_connect('bigdeli.mx', 'atomstud_sergio', 'bigdeli123', 'atomstud_pos');
-                       if (!$conn) {
-                           die("Connection failed: " . mysqli_connect_error());
-                       }
-                       $consulta = "SELECT id FROM interno";
-                       $datos = $conn->query($consulta);
-                       $resultado=0;
-                       while ($row=mysqli_fetch_array($datos)){
-                        echo "<input type='hidden' class='editId' value='".$row['id']."'>";
-                        
-
-                        }
-                        ?>
+               
               </div>
-            </div>
 
             </div>
 
-        </div>
+          </div>
 
-    </div>
+      </div>
+
+  </div>
 
     <div class="modal-footer">
 
@@ -218,6 +240,9 @@ MODAL AGREGAR PRODUCTO
 </div>
 
 </div>
+
+
+
 
 <!--=====================================
 MODAL AGREGAR PRODUCTO
