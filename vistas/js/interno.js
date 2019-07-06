@@ -45,7 +45,7 @@ function borrar(id) {
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Si, Cerrar Caja.'
+        confirmButtonText: 'Si, Borrar.'
         }).then(function(result) {
         if (result.value) {
             var parametros = {
@@ -80,18 +80,12 @@ function traer() {
     var variable2 = $(".editStock");
     var variable3 = $(".editCosto");
     var variable4 = $("#inputState");
-    
+
     var descripcion = variable1.val()
     var stock = variable2.val()
     var costo = variable3.val()
     var id = variable4.val()
-
-  /*   alert(descripcion)
-    alert(stock)
-    alert(costo)
-    alert(id) */
-
-
+    
     var parametro = {
         id,
         descripcion,

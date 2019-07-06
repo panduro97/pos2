@@ -30,6 +30,8 @@
 
         </button>
 
+        <button class='btn btn-warning' data-toggle='modal'  data-target='#modalAgregarProductos'><i class='fa fa-pencil'></i> Editar</button>
+
         <?php 
                        $conn = mysqli_connect('bigdeli.mx', 'atomstud_sergio', 'bigdeli123', 'atomstud_pos');
                        if (!$conn) {
@@ -49,7 +51,6 @@
 
                 
 
-                <button class='btn btn-warning' data-toggle='modal'  data-target='#modalAgregarProductos'><i class='fa fa-pencil'></i></button>
                 
          
       </div>
